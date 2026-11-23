@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms"; /* styles inputs/selects/checkboxes */
+
+/* Battery Saver Mode (default, light + green) */
+@theme {
+  --color-page: #f1f8f2;
+  --color-card: #ffffff;
+  --color-ink: #12301b;
+  --color-muted: #4a6652;
+  --color-line: #c9e2cf;
+  --color-accent: #15803d;
+  --color-accent-ink: #ffffff;
+  --color-best: #bbf7d0;
+}
+@layer base {
+  [data-theme="performance"] {
+    --color-page: #121212;
+    --color-card: #1f1f1f;
+    --color-ink: #f5f5f5;
+    --color-muted: #a8a8a8;
+    --color-line: #3a3a3a;
+    --color-accent: #f97316;
+    --color-accent-ink: #111111;
+    --color-best: #7c2d12;
+  }
+}
+@layer components {
+  .laptop-card {
+    @apply flex flex-col gap-2 rounded-xl border border-line bg-card p-4 transition hover:-translate-y-1 hover:shadow-lg;
+  }
+  .btn-action {
+    @apply inline-block rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-accent-ink transition hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+}
